@@ -1,11 +1,13 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 import styled from "styled-components";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Articles } from "./pages/Articles";
 import { CounterButton } from "./components/CounterButton";
-import { CounterProvider } from "./Provider/CounterProvider";
+import { DisplayCount } from "./components/DisplayCount";
+// import { CounterProvider } from "./Provider/CounterProvider";
 
 const GreenHeading = styled.h1`
   color: green;
@@ -14,7 +16,8 @@ const GreenHeading = styled.h1`
 
 const App = () => {
   return (
-    <CounterProvider>
+    <RecoilRoot>
+      <DisplayCount />
       <GreenHeading>Server-Side Rendering Example</GreenHeading>
       <ul>
         <li>
@@ -41,7 +44,7 @@ const App = () => {
           <Articles />
         </Route>
       </Switch>
-    </CounterProvider>
+    </RecoilRoot>
   );
 };
 
